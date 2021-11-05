@@ -6,6 +6,7 @@ import App from "./App";
 
 import { applyMiddleware, createStore } from "redux";
 import { Provider } from 'react-redux';
+import logger from "redux-logger";
 import reducer from './reducers'
 import thunk from "redux-thunk";
 
@@ -14,7 +15,7 @@ worker.start();
 
 const rootElement = document.getElementById("root");
 
-const store = createStore(reducer, applyMiddleware(thunk))
+const store = createStore(reducer, applyMiddleware(thunk, logger))
 
 console.log(store.getState())
 
